@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ENVIRONMENT=development redskull start --dashboard false",
     "test": "ENVIRONMENT=testing redskull build",
-    "build": "ENVIRONMENT=production redskull build --publicPath ./dist/ & cp -f ./dist/index.html ./index.html"
+    "build": "ENVIRONMENT=production redskull build --publicPath ./dist/ && cp -f ./dist/index.html ./index.html"
   },
   "license": "ISC",
   "dependencies": {
@@ -16,6 +16,7 @@
     "src": "./src",
     "entry": "index.js",
     "dist": "./dist",
+    "openBrowser": true,
     "devConfig": "./webpack/config.dev.js",
     "prodConfig": "./webpack/config.prod.js",
     "favico": ""
