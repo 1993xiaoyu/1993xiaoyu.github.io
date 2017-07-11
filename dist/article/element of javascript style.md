@@ -1,5 +1,7 @@
-# JAVASCRIPT 写作指南
-
+---
+title:JAVASCRIPT 写作指南
+tag: JQ
+---
 ￼
 <img class="progressiveMedia-noscript js-progressiveMedia-inner" src="https://cdn-images-1.medium.com/max/1600/1*7qYONdlJuS0pkUpdav-LQQ.jpeg">
 
@@ -91,7 +93,7 @@
 
    第一个代码块包含了一些非必要的语法。花括号，`function`关键字，和`return`语句对于那些熟悉箭头函数的人来说别无深意。它们只是为了让那些不熟悉ES6语法的人看这个代码块更眼熟而已。
 
-   自 2015年开始，ES6已经成为了 JavaScript 语言的标准。现在是时候我们来好好熟悉熟悉它了。 
+   自 2015年开始，ES6已经成为了 JavaScript 语言的标准。现在是时候我们来好好熟悉熟悉它了。
 
    删掉不必要的变量
 
@@ -416,7 +418,7 @@
    const birthdayParty = createEvent(
    	'Birthday Party',
    	undefined, // 这一行代码是完全可避免的
-   	'Best party ever!'  
+   	'Best party ever!'
    );
    ```
 
