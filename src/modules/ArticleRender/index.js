@@ -1,27 +1,26 @@
-import { React }     from 'zola'
-//import ReactMarkdown from 'react-markdown'
+import { React } from 'zola'
 import showdown from 'showdown'
 import './markdown.styl'
-
 export default class extends React.Component{
-	constructor(props){
-		super(props)
-		this.state = {
-			content : null
-		}
-	}
+	constructor(props) {
+	  super(props);
 
+	  this.state = {
+	  	content:null
+	  };
+	}
 	componentWillMount(){
 		const filePath = this.props.articlePath
-  	fetch(filePath).then((data) =>{
-  		data.text().then(text =>{
-				//this.setState({content:text})
-				const converter = new showdown.Converter()
-  			converter.setOption('tables', true);
-  			const content   = converter.makeHtml(text);
-				this.setState({content})
-  		})
-  	})
+		console.log(filePath)
+		console.log("D")
+	  	fetch(filePath).then((data) =>{
+	  		data.text().then(text =>{
+	  			const converter = new showdown.Converter()
+	  			converter.setOption('tables', true);
+	  			const content   = converter.makeHtml(text);
+				  this.setState({content})
+	  		})
+	  	})
 	}
 
 	render(){
@@ -31,9 +30,7 @@ export default class extends React.Component{
 		}
 		return (
 			<div className="markdown" dangerouslySetInnerHTML={{__html: content}}>
-				 {/*<ReactMarkdown source={content} />*/}
 			</div>
-
 		)
 	}
 }

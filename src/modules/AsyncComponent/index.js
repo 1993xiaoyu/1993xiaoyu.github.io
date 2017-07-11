@@ -5,7 +5,7 @@ export default class extends React.Component{
 	componentWillMount(){
 		const comFn = this.props.comFn
 		comFn.then((Component) =>{
-			this.renderComponent = Component
+			this.renderComponent = Component.default ? Component.default:Component
 			this.forceUpdate()
 		})
 	}
@@ -13,10 +13,10 @@ export default class extends React.Component{
 		this.renderComponent = null
 	}
 	render(){
-		if(!this.renderComponent){
-			return null
-		}
-		const renderComponent = this.renderComponent
-		return <renderComponent {...this.props}/>
+		// if(!this.renderComponent){
+		// 	return null
+		// }
+		const renderComponent = this.renderComponent || 'div'
+		return React.createElement(renderComponent, {}, [])
 	}
 }

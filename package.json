@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "jiayou",
   "version": "0.0.1",
   "description": "a react application powerd by zola",
   "scripts": {
@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@lianjia/zola-core": "0.0.4",
-    "react-markdown": "^2.5.0",
+    "chokidar": "^1.7.0",
+    "react-html-parser": "^1.0.3",
     "showdown": "^1.7.1"
   },
   "redskull": {
@@ -19,7 +20,10 @@
     "entry": "index.js",
     "dist": "./dist",
     "openBrowser": false,
-    "deps": "./",
-    "favico": "./src/favicon.ico"
+    "favico": "./src/favicon.ico",
+    "deps" : "./article"
+  },
+  "devDependencies": {
+    "chokidar": "^1.7.0"
   }
 }
