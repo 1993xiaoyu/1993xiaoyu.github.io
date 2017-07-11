@@ -1,7 +1,7 @@
 var common = require('./config.common')
 const fs = require('fs')
 const path = require('path')
-const SyncMDDataPlugin = require('./SyncMDDataPlugin')
+const SyncMDDataPlugin = require('./syncData/SyncMDDataPlugin')
 
 module.exports = function (webpackConfig, redSkull, webpackPlugins) {
 
@@ -36,7 +36,7 @@ module.exports = function (webpackConfig, redSkull, webpackPlugins) {
     test: /\.md$/,
     loader: 'markdown-loader'
   })
-  
+
 
   webpackConfig.resolveLoader.modules.push(path.join(process.cwd(),'webpack/loader'))
   webpackConfig.plugins.push(new SyncMDDataPlugin())

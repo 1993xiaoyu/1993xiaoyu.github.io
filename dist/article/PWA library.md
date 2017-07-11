@@ -201,7 +201,7 @@ sw-toolbox也提供给我们可以更精准的控制缓存特性的接口。除�
 
 ```
 toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
-  cache: 
+  cache:
    name: 'products',
    maxEntries: 12,
    maxAgeSeconds: 86400
@@ -245,11 +245,11 @@ window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', '<!-- your google_analytics_tracking_id -->', 'auto');
 // Autotrack plugins available
 ga('require', 'urlChangeTracker');
-ga('require', 'cleanUrlTracker');    
+ga('require', 'cleanUrlTracker');
 ga('require', 'eventTracker');
 ga('require', 'maxScrollTracker');
-ga('require', 'outboundLinkTracker');  
-ga('require', 'pageVisibilityTracker');    
+ga('require', 'outboundLinkTracker');
+ga('require', 'pageVisibilityTracker');
 
 ga('send', 'pageview');
 </script>

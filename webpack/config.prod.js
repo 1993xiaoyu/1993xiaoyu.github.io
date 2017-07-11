@@ -1,7 +1,8 @@
 var common = require('./config.common')
 const fs = require('fs')
 const path = require('path')
-const SyncMDDataPlugin = require('./SyncMDDataPlugin')
+const SyncMDDataPlugin = require('./syncData/SyncMDDataPlugin')
+
 
 module.exports = function (webpackConfig, redSkull, webpackPlugins) {
 

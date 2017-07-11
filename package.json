@@ -1,5 +1,5 @@
 {
-  "name": "jiayou",
+  "name": "happy",
   "version": "0.0.1",
   "description": "a react application powerd by zola",
   "scripts": {
@@ -12,7 +12,8 @@
     "@lianjia/zola-core": "0.0.4",
     "chokidar": "^1.7.0",
     "react-html-parser": "^1.0.3",
-    "showdown": "^1.7.1"
+    "showdown": "^1.7.1",
+    "summarize-markdown": "^0.3.1"
   },
   "redskull": {
     "port": 6003,
@@ -21,7 +22,7 @@
     "dist": "./dist",
     "openBrowser": false,
     "favico": "./src/favicon.ico",
-    "deps" : "./article"
+    "deps": "./article"
   },
   "devDependencies": {
     "chokidar": "^1.7.0"
