@@ -1,17 +1,31 @@
-/**
- *  === page ===
- *
- *  created at: Tue Jun 27 2017 18:27:29 GMT+0800 (CST)
- */
-
 import { React, Page } from 'zola'
+import { Router, Route,Link, hashHistory } from 'react-router'
+import './index.styl'
+import img from './images/1.jpeg';
 import articleList from 'data/article'
-import '../common/index.styl'
-import img from '../common/images/180.jpg';
+import pageRoute from './pageRoute'
+
 
 
 export default class Index extends Page {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemRoute:pageRoute[0]
+    }
+  }
+  componentWillMount() {
+    let {route} = this.props;
+    let {path} = route;
+    pageRoute.map(v => {
+      if(v.path == path){
+        this.setState({itemRoute: v});
+      }
+    });
+  }
+
   render () {
+
     return (
       <div className="contentBox">
         <div className="headerBox">
@@ -20,7 +34,7 @@ export default class Index extends Page {
           <div className="vcard box">
             <h2>个人资料</h2>
             <img src={img} className="photo"/>
-            <p className="url"><a href="/index">主页：1993xiaoyu.github.io</a></p>
+            <p className="url">主页：<Link to="/index">1993xiaoyu.github.io</Link></p>
             <p className="fn">姓名：小鱼🐟</p>
             <p className="nickname">网名：xiaoYu | 哎呦</p>
             <p className="address">职业：前端开发</p>
@@ -29,35 +43,20 @@ export default class Index extends Page {
           <div className="blogclass box">
             <h2>博客分类</h2>
             <ul>
-              <li><a href="/">乱七八糟</a></li>
-              <li><a href="/">HTML</a></li>
-              <li><a href="/">CSS</a></li>
-              <li><a href="/">JQ</a></li>
-              <li><a href="/">React</a></li>
-              <li><a href="/">Node</a></li>
+              <li><Link to="/index">乱七八糟</Link></li>
+              <li><Link to="/index">HTML</Link></li>
+              <li><Link to="/index">CSS</Link></li>
+              <li><Link to="/index">JQ</Link></li>
+              <li><Link to="/index">React</Link></li>
+              <li><Link to="/index">Node</Link></li>
             </ul>
           </div>
         </div>
-        <div className="rightbox box">
-          <h2>最新博文</h2>
-          {
-            articleList.map((article,index) =>{
-              if(index < 5){
-                return (
-                  <div key={index}>
-                    <h3 className="title"><a href={`#${article.path}`}>{article.title}</a></h3>
-                    <ul className="text">
-                      <p>{article.example}</p>
-                    </ul>
-                    <div className="textfoot"> <a href={`#${article.path}`}>阅读全文</a> </div>
-                  </div>
-                )
-              }
 
-            })
-          }
+        <Router history={hashHistory}>
+          <Route  path={this.state.itemRoute.path} component={this.state.itemRoute.component}/>
+        </Router>
 
-        </div>
       </div>
     )
   }
