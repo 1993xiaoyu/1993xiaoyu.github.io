@@ -40,22 +40,21 @@ module.exports = function(content,map) {
 	// const contentData = JSON.stringify(htmlParse(content))
 
 	// React.createElement('', props, children)
-	content = `
-		import React,{Component} from 'react'
-		import ReactHtmlParser from 'react-html-parser'
-		export default class extends Component{
+	// content = `
+	// 	import React,{Component} from 'react'
+	// 	import ReactHtmlParser from 'react-html-parser'
+	// 	export default class extends Component{
 		
-			render(){
-				return (
-					<div>
-					{ ReactHtmlParser(${JSON.stringify(content)}) }
-					</div>
-				)
-			}
-		}
-	`
+	// 		render(){
+	// 			return (
+	// 				<div>
+	// 				{ ReactHtmlParser(${JSON.stringify(content)}) }
+	// 				</div>
+	// 			)
+	// 		}
+	// 	}
+	// `
 	
-	// 
 	// return JSON.stringify(content)
 	this.callback(null, content,map);
 	

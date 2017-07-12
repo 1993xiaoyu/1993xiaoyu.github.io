@@ -10,32 +10,24 @@ export default [{
 }]
 
  */
-const path          = require('path')
-const fs            = require('fs')
+const path = require('path')
+const fs = require('fs')
 const getAllArticle = require('./getAllArticle')
+var chokidar = require('chokidar');
 
-const ARTILE_PATH     = path.join(__dirname,'../../article')
-const WRITE_FILE_PATH = path.join(__dirname,'../../src/data/article.js')
-
-
-
+const ARTILE_PATH = path.join(__dirname,'../../article')
+const WRITE_FILE_PATH = path.join(__dirname,'../../src/data','article.js')
 var chokidar = require('chokidar');
 function SyncMDDataPlugin(options) {
 
 }
 
+function articleToCode(article){
 
-function getFileContent(fileList){
-	let result = []
-	if(fileList && fileList.length){
-		result = fileList.map(articleToString)
-	}
-	return `export default [${result.join(',')}]`
-}
-function articleToString(article){
-    const result = []
-    const keys   = Object.keys(article)
-    keys.forEach((k) =>{
+	const result = []
+	const keys = Object.keys(article)
+
+	keys.forEach((k) =>{
         result.push(`\t\t${k}:${JSON.stringify(article[k])}\t\t`)
     })
 
@@ -43,7 +35,17 @@ function articleToString(article){
 
 
     return `\t{\n${result.join(',\n')}\n\t}`
+}
+function getFileContent(fileList){
+	let result = []
 
+	if(fileList && fileList.length){
+		result = fileList.map(articleToCode)
+	}
+
+	return `
+	export default [${result.join(',')}]
+	`
 }
 let currentFileConent = ''
 
@@ -56,16 +58,22 @@ Object.assign(SyncMDDataPlugin.prototype, {
             })
 
             const content = getFileContent(articles)
+            console.log(content == currentFileConent)
+
             if(content == currentFileConent){
             	return
             }
             currentFileConent = content
-            fs.writeFileSync(WRITE_FILE_PATH,content,{charset:'utf-8'})
+
+            fs.writeFileSync(WRITE_FILE_PATH,content,{
+            	charset:'utf-8'
+            })
     	}
         compiler.plugin('compilation', function() {
             writeData()
         })
-
+        // writeData()
+        // watch
         var watcher = chokidar.watch(ARTILE_PATH,{
         	ignoreInitial:true
         })

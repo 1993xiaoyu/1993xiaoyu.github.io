@@ -1,6 +1,8 @@
 import { React } from 'zola'
 import showdown from 'showdown'
+import articleList from '../../data/article'
 import './markdown.styl'
+
 export default class extends React.Component{
 	constructor(props) {
 	  super(props);
@@ -11,17 +13,17 @@ export default class extends React.Component{
 	}
 	componentWillMount(){
 		const filePath = this.props.articlePath
-	  	fetch(filePath).then((data) =>{
-	  		data.text().then(text =>{
-	  			var subEnd  = text.indexOf("---", 3)
-			    var subVal  = text.substring(subEnd)
 
-	  			const converter = new showdown.Converter()
-	  			converter.setOption('tables', true)
-	  			const content   = converter.makeHtml(subVal);
-				  this.setState({content})
-	  		})
-	  	})
+		articleList.map(v => {
+      if(v.path+'.md' == filePath){
+      	v.component().then(content => {
+      		console.log(content)
+      		var subEnd  = content.indexOf("---", 3)
+			    var subVal  = content.substring(subEnd)
+		      this.setState({content:content})
+		    });
+      }
+    });
 	}
 
 	render(){
