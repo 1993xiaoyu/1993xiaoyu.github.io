@@ -1,4 +1,5 @@
 const showdown = require('showdown')
+const markDownString = require('summarize-markdown')
 // var babel = require("babel-core");
 module.exports = function(content,map) {
 	this.cacheable && this.cacheable()
@@ -10,19 +11,23 @@ module.exports = function(content,map) {
 	2. html -> jsx
 	3. jsx -> js
 	 */
-	
+
 	const converter = new showdown.Converter()
 	converter.setOption('tables', true)
-	content   = converter.makeHtml(content)
-	  			
+	var mDString=markDownString(content);
+  var subEnd  = content.indexOf("---", 3);
+  var subVal  = content.substring(subEnd)
+
+	content   = converter.makeHtml(subVal)
+
 
 	// this.value = content;
 	/*
 	import React,{Component} from 'react'
 	export default class extends Component{
-	
+
 		render(){
-	
+
 			return (
 				content
 			)
@@ -44,7 +49,7 @@ module.exports = function(content,map) {
 	// 	import React,{Component} from 'react'
 	// 	import ReactHtmlParser from 'react-html-parser'
 	// 	export default class extends Component{
-		
+
 	// 		render(){
 	// 			return (
 	// 				<div>
@@ -54,9 +59,9 @@ module.exports = function(content,map) {
 	// 		}
 	// 	}
 	// `
-	
+
 	// return JSON.stringify(content)
 	this.callback(null, content,map);
-	
+
 }
 module.exports.seperable = true;

@@ -58,7 +58,7 @@ Object.assign(SyncMDDataPlugin.prototype, {
             })
 
             const content = getFileContent(articles)
-            console.log(content == currentFileConent)
+
 
             if(content == currentFileConent){
             	return

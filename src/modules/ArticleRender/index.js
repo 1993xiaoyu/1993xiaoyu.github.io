@@ -17,9 +17,6 @@ export default class extends React.Component{
 		articleList.map(v => {
       if(v.path+'.md' == filePath){
       	v.component().then(content => {
-      		console.log(content)
-      		var subEnd  = content.indexOf("---", 3)
-			    var subVal  = content.substring(subEnd)
 		      this.setState({content:content})
 		    });
       }

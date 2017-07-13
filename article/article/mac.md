@@ -1,4 +1,7 @@
-
+---
+title:Mac快捷键
+tag:杂七乱八
+---
 > ⌘（command）、⌥（option）、⇧（shift）、⇪（caps lock）、⌃（control）、↩（return）、⌅（enter）
 
 Command+M:最小化窗口
