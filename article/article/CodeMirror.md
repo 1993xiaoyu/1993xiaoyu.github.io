@@ -7,8 +7,7 @@ tag:乱七八糟
 英文太难了，真的太难了（哭），最近使用CodeMirror比较多，所以做如下总结，方便以后查看
 
 第一步：官网[下载CodeMirror](http://codemirror.net/)文件<br>
-[下载？戳我呀！](http://codemirror.net/)
-（快速使用：查看下载中demo的文件夹，不看文档也可以快速实现你想要的效果）
+不告诉你的小秘密：查看下载中demo的文件夹，不看文档也可以快速实现你想要的效果
 
 第二步：在使用前必须先引用
 ```
@@ -93,7 +92,7 @@ extraKeys:{
 
 ##参考
 
-[以上入若没有解决问题，可点击这里](https://zhuanlan.zhihu.com/p/22163474)
+[以上若没有解决问题，可点击这里](https://zhuanlan.zhihu.com/p/22163474)
 
 [查看更多参数配置请点击这里](http://blog.csdn.net/qq_20389175/article/details/50956296)
 

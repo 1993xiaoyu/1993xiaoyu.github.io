@@ -4,7 +4,7 @@
 		title:"编辑器CodeMirror总结"		,
 		tag:"乱七八糟"		,
 		path:"/article/CodeMirror"		,
-		example:"器CodeMirror总结: 英文太难了，真的太难了（哭），最近使用CodeMirror比较多，所以做如下总结，方便以后查看 第一步：官网下载CodeMirror文件<br>\n下载？戳我呀！\n（快速使用：查看下载中demo的文件夹，不看文档也可以快速实现你想要的效果） 第二步：在使用前必须先引用 第三步：根据使用需求引用对应的css和js\n譬如主题： 譬如sql自动补全: 第四步：构造editor，根据需要对CodeMirror进行参数配置，以下只列出常用参数 第五步：CodeMirror的取值(getValue)和......"		,
+		example:"器CodeMirror总结: 英文太难了，真的太难了（哭），最近使用CodeMirror比较多，所以做如下总结，方便以后查看 第一步：官网下载CodeMirror文件<br>\n不告诉你的小秘密：查看下载中demo的文件夹，不看文档也可以快速实现你想要的效果 第二步：在使用前必须先引用 第三步：根据使用需求引用对应的css和js\n譬如主题： 譬如sql自动补全: 第四步：构造editor，根据需要对CodeMirror进行参数配置，以下只列出常用参数 第五步：CodeMirror的取值(getValue)和赋值(set......"		,
 		createTime:""		,
 		component:()=>System.import('article/article/CodeMirror.md')
 	},	{
